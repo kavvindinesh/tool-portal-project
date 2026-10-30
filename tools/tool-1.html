@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool 1 — Aircraft Inspection Tools</title>
+  <script>
+    // Apply the saved theme before the page draws. Light is the default.
+    try {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/theme.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="../index.html">Aircraft Inspection Tools</a>
+      <button class="theme-toggle" type="button">Dark theme</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">← All tools</a>
+    <h1>Tool 1 — coming soon</h1>
+    <p class="intro">This page is a placeholder. The real tool will appear here.</p>
+    <div class="placeholder-box">Tool content goes here.</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>For learning only. Real inspections must follow the aircraft manufacturer's approved data and NDT manuals.</p>
+    </div>
+  </footer>
+</body>
+</html>
