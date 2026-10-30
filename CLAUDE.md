@@ -46,9 +46,10 @@ A portal of small web tools for aircraft inspection students.
    and the NDT method selector (pick material, defect type and location →
    see recommended / possible / unsuitable methods, with reasons).
    - [x] Portal shell: homepage, shared styles, light/dark toggle, and a
-     placeholder "Tool 1 — coming soon" card (`tools/tool-1.html`) to prove
-     the open/back navigation.
-   - [ ] NDT method selector (replaces the placeholder).
+     placeholder "Tool 1 — coming soon" card to prove the open/back
+     navigation.
+   - [x] NDT method selector (`tools/ndt-method-selector.html`), replacing
+     the placeholder. Rules follow FAA-H-8083-30 and AC 43.13-1B Ch. 5.
 2. **More NDT tools:** e.g. eddy current depth calculator, ultrasonic
    thickness calculator, penetrant process guide.
 3. **Grow the portal:** group tools by topic as the list gets longer.

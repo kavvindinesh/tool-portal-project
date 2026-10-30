@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NDT Method Selector — Aircraft Inspection Tools</title>
+  <script>
+    // Apply the saved theme before the page draws. Light is the default.
+    try {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/theme.js" defer></script>
+  <script src="../js/ndt-method-selector.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="../index.html">Aircraft Inspection Tools</a>
+      <button class="theme-toggle" type="button">Dark theme</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">← All tools</a>
+    <h1>NDT method selector</h1>
+    <p class="intro">NDT (non-destructive testing) means checking a part for flaws without damaging it. Choose the material, the kind of flaw you're looking for, and where it is. The tool shows which methods fit, and why.</p>
+
+    <form id="ndt-form" class="form-grid">
+      <div class="field">
+        <label for="material">Material</label>
+        <select id="material" name="material" aria-describedby="material-hint">
+          <option value="" selected disabled>Choose…</option>
+          <option value="al">Aluminium alloy</option>
+          <option value="steel">Steel (magnetic)</option>
+          <option value="nonmag">Titanium or non-magnetic stainless steel</option>
+          <option value="composite">Solid composite (carbon or glass fibre)</option>
+          <option value="honeycomb">Composite honeycomb panel</option>
+        </select>
+        <p class="hint" id="material-hint">What the part is made of.</p>
+      </div>
+
+      <div class="field">
+        <label for="defect">Flaw you're looking for</label>
+        <select id="defect" name="defect" aria-describedby="defect-hint">
+          <option value="" selected disabled>Choose…</option>
+          <option value="surfaceCrack">Crack on the surface</option>
+          <option value="holeCrack">Crack at a fastener hole</option>
+          <option value="corrosion">Corrosion or thinning</option>
+          <option value="delam">Delamination or disbond</option>
+          <option value="internal">Flaw deep inside (void or inclusion)</option>
+          <option value="water">Water inside the panel</option>
+        </select>
+        <p class="hint" id="defect-hint">The kind of damage you suspect. Delamination or disbond means layers separating.</p>
+      </div>
+
+      <div class="field">
+        <label for="access">Where it is</label>
+        <select id="access" name="access" aria-describedby="access-hint">
+          <option value="" selected disabled>Choose…</option>
+          <option value="bare">Bare surface I can reach</option>
+          <option value="coated">Painted or coated surface</option>
+          <option value="hidden">Hidden behind other structure</option>
+        </select>
+        <p class="hint" id="access-hint">How easy it is to get to the area.</p>
+      </div>
+    </form>
+
+    <div id="results" class="results" aria-live="polite"></div>
+
+    <p class="source">Based on FAA-H-8083-30 (Aviation Maintenance Technician Handbook – General) and FAA AC 43.13-1B, Chapter 5 (Nondestructive Inspection).</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>For learning only. Real inspections must follow the aircraft manufacturer's approved data and NDT manuals.</p>
+    </div>
+  </footer>
+</body>
+</html>
