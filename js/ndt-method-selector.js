@@ -125,17 +125,37 @@
     return "";
   }
 
+  // Each group has a small icon (check, dash, cross) drawn as SVG paths.
   var GROUPS = [
-    { verdict: YES, title: "Recommended" },
-    { verdict: MAYBE, title: "Possible" },
-    { verdict: NO, title: "Not suitable" }
+    { verdict: YES, title: "Recommended", icon: "M5 12.5l4.5 4.5L19 7.5" },
+    { verdict: MAYBE, title: "Possible", icon: "M6 12h12" },
+    { verdict: NO, title: "Not suitable", icon: "M7 7l10 10M17 7L7 17" }
   ];
+
+  var SVG_NS = "http://www.w3.org/2000/svg";
 
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
     if (text) node.textContent = text;
     return node;
+  }
+
+  function icon(pathData) {
+    var svg = document.createElementNS(SVG_NS, "svg");
+    svg.setAttribute("width", "22");
+    svg.setAttribute("height", "22");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "2.5");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+    svg.setAttribute("aria-hidden", "true");
+    var path = document.createElementNS(SVG_NS, "path");
+    path.setAttribute("d", pathData);
+    svg.appendChild(path);
+    return svg;
   }
 
   function render(form, results) {
@@ -162,7 +182,10 @@
     GROUPS.forEach(function (group) {
       var items = evaluated.filter(function (e) { return e.verdict === group.verdict; });
       var section = el("section", "result-group result-" + group.verdict);
-      section.appendChild(el("h2", null, group.title));
+      var heading = el("h2");
+      heading.appendChild(icon(group.icon));
+      heading.appendChild(el("span", null, group.title));
+      section.appendChild(heading);
 
       if (items.length === 0) {
         section.appendChild(el("p", "hint", group.verdict === YES

@@ -25,6 +25,17 @@ The repository is nearly empty for now. Planned layout:
 3. Text must stay easy to read, with good contrast, in both the light and
    the dark theme.
 
+## Visual Design
+
+"Study Notebook" style, defined in `css/styles.css`; reuse its variables and
+classes rather than adding new colours.
+
+- Fonts (Google Fonts, with system fallbacks): Space Grotesk for headings,
+  Atkinson Hyperlegible for body text.
+- Light: warm white `#fbfaf7`, near-black text, deep green accent `#1f5e46`.
+- Dark: `#151917` background, light text, mint accent `#7fd1a8`.
+- Soft rounded panels (12–16px corners), tap targets at least 44px tall.
+
 ## Feature Plan
 
 A portal of small web tools for aircraft inspection students.
