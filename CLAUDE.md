@@ -8,8 +8,7 @@
 
 ## Project Structure
 
-The repository is nearly empty for now. Keep files at the top level until
-there is a reason to organise them:
+The repository is nearly empty for now. Planned layout:
 
 - `CLAUDE.md` – these instructions.
 - `index.html` – the homepage (tool cards).
